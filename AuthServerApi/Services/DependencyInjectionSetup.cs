@@ -1,4 +1,7 @@
-﻿namespace AuthServerApi.Services;
+﻿using AuthServerApi.Services.PasswordHasers;
+using AuthServerApi.Services.UserRepositories;
+
+namespace AuthServerApi.Services;
 
 public static class DependencyInjectionSetup
 {
@@ -6,6 +9,9 @@ public static class DependencyInjectionSetup
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddControllers();
+        services.AddSingleton<IPasswordHasher, BCryptPasswordHasher>();
+        services.AddSingleton<IUserRepositories, InMemoryUserRepository>();
         return services;
     }
 }

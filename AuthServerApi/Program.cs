@@ -12,6 +12,6 @@ app.ConfigureSwagger();
 
 app.UseHttpsRedirection();
 
-app.MapUserEndpoints();
+app.MapAuthEndpoints();
 
 app.Run();
